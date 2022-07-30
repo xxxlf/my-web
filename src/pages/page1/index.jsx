@@ -18,7 +18,7 @@ function Page_1() {
     <div>
       Page_1_{code}
       <br />
-      <Button type="primary" onClick={() => dispatch(func())}>更改</Button>
+      <Button onClick={() => dispatch(func())}>更改</Button>
     </div>
   );
 }

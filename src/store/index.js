@@ -1,14 +1,17 @@
 import { legacy_createStore as createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
-const initState = { code: "react" };
+const initState = {
+  // 默认黑色主题
+  isNight: true,
+};
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
-    case "xxxxxx":
+    case "themeSwitch":
       return {
         ...state,
-        code: `${state.code}${action.value}`,
+        isNight: !state.isNight,
       };
     default:
       return {

@@ -11,7 +11,7 @@ module.exports = {
     // another: "./src/another.js",
   },
   output: {
-    path: path.resolve(__dirname, "../dist"),
+    path: path.resolve(__dirname, "../docs"),
     clean: true,
     assetModuleFilename: "imagesss/[contenthash][ext]",
   },
@@ -19,7 +19,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "../public/index.html"),
       inject: "body",
-      title: "react app",
+      title: "xxxlf-web",
     }),
     new MiniCssExtractPlugin({
       filename: "style/index.[contenthash].css",
@@ -33,14 +33,17 @@ module.exports = {
         generator: {
           filename: "images/[contenthash][ext]",
         },
+        include: /src/,
       },
       {
         test: /\.svg$/,
         type: "asset/inline",
+        include: /src/,
       },
       {
         test: /\.txt$/,
         type: "asset/source",
+        include: /src/,
       },
       {
         test: /\.png$/,
@@ -50,6 +53,7 @@ module.exports = {
             maxSize: 4 * 1024 * 1024,
           },
         },
+        include: /src/,
       },
 
       {
@@ -61,14 +65,19 @@ module.exports = {
       },
       {
         test: /\.(css|less)$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", {
-          loader: "less-loader",
-          options: {
-            lessOptions: {
-              javascriptEnabled: true,
-            }
-          }
-        }],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          {
+            loader: "less-loader",
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
         include: /src/,
       },
       {
@@ -95,7 +104,7 @@ module.exports = {
             loader: "babel-loader",
             // options: {
             //   presets: ["@babel/preset-env"],
-              // plugins: [["@babel/plugin-transform-runtime"]],
+            //   plugins: [["@babel/plugin-transform-runtime"]],
             // },
           },
         ],
@@ -106,6 +115,7 @@ module.exports = {
         parser: {
           parse: toml.parse,
         },
+        include: /src/,
       },
       {
         test: /\.yaml$/,
@@ -113,6 +123,7 @@ module.exports = {
         parser: {
           parse: yaml.parse,
         },
+        include: /src/,
       },
       {
         test: /\.json5$/,
@@ -120,6 +131,7 @@ module.exports = {
         parser: {
           parse: json5.parse,
         },
+        include: /src/,
       },
     ],
   },

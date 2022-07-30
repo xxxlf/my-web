@@ -4,7 +4,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 module.exports = {
   output: {
     filename: "script/[name].[contenthash].bundel.js",
-    publicPath: "http://localhost:8080/"
+    publicPath: "/"
   },
   mode: "production",
   performance: {

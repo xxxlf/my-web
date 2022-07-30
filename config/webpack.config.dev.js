@@ -1,19 +1,24 @@
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+// const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const { PORT } = require("./base");
 
 module.exports = {
   output: {
     filename: "script/[name].bundel.js",
+    publicPath: "/"
   },
   mode: "development",
   devtool: "cheap-module-source-map",
   devServer: {
-    static: "./dist",
+    static: "../docs",
     host: "127.0.0.1",
-    port: 6060,
-    hot: true,
+    port: PORT,
+    // hot: true,
     open: true,
     // BrowserRouter 出现 cannot get /xxx/xxx 路径时
-    historyApiFallback: true
+    historyApiFallback: true,
+    client: {
+      logging: 'none',
+    },
   },
   plugins: [
       // 打包分布图
