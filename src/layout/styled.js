@@ -1,27 +1,20 @@
 import styled from "styled-components";
+import {
+  BLACK,
+  WHITE,
+  DDDDDD,
+  NIGHT_BG,
+  DAY_BG,
+  NIGHT_NAV_BG,
+  NIGHT_BOX_BG,
+  DAY_BOX_BG,
+  DAY_NAV_SWITCH_BG,
+  NIGHT_TEXT_COLOR,
+  DAY_TEXT_COLOR,
+  TRANSITION_300MS,
+} from "@/const/css";
 
-const BLACK = "#000";
-const WHITE = "#fff";
-const F3F3F3 = "#f3f3f3";
-const DDDDDD = "#ddd";
-const ANTD_BG = "var(--antd-wave-shadow-color)";
-
-const NIGHT_BG = "#18191a";
-const DAY_BG = "#e4e9f7";
-
-const NIGHT_NAV_BG = "#242526";
-
-const NIGHT_BOX_BG = "#3a3b3c";
-const DAY_BOX_BG = "#f6f5ff";
-
-const DAY_NAV_SWITCH_BG = "#695cfe";
-
-const NIGHT_TEXT_COLOR = "#ccc";
-const DAY_TEXT_COLOR = "#707070";
-
-const TRANSITION_300MS = "all .3s ease";
-
-const LayoutContainer = styled.div`
+export const LayoutContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   height: 100%;
@@ -42,8 +35,9 @@ const LayoutContainer = styled.div`
     .layout_article {
       flex: 1;
       margin: 16px;
-      padding: 16px;
-      border: 1px solid #000;
+      /* padding: 16px; */
+      /* border: 1px solid #000; */
+      overflow-y: auto;
     }
   }
 
@@ -102,9 +96,10 @@ const LayoutContainer = styled.div`
       height: 25px;
       border-radius: 50%;
       cursor: pointer;
-      background: ${(props) => (props.isNight ? WHITE : DAY_NAV_SWITCH_BG)};
+      background: ${(props) => (props.isNight ? WHITE : "rgb(72, 137, 198)")};
       color: ${(props) => (props.isNight ? BLACK : WHITE)};
       transition: transform ease-out 0.1s, background 0.2s;
+      z-index: 99;
     }
     .nav_switch::after {
       pointer-events: none;
@@ -158,6 +153,10 @@ const LayoutContainer = styled.div`
         flex: 1;
         color: ${(props) =>
           props.isNight ? NIGHT_TEXT_COLOR : DAY_TEXT_COLOR};
+        width: ${(props) => (props.isOpen ? "unset" : 0)};
+        transition: ${TRANSITION_300MS};
+        white-space: nowrap;
+        overflow: hidden;
       }
       .toggle_switch {
         height: 100%;
@@ -195,4 +194,40 @@ const LayoutContainer = styled.div`
   }
 `;
 
-export default LayoutContainer;
+export const MenuContainer = styled.ul`
+  margin-top: 40px;
+  li {
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    color: ${(props) => (props.isNight ? NIGHT_TEXT_COLOR : DAY_TEXT_COLOR)};
+    transition: ${TRANSITION_300MS};
+    padding: 0 10px;
+    font-size: 18px;
+    .menu_icon {
+      width: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .menu_text {
+      flex: 1;
+      display: inline-block;
+      width: ${(props) => (props.isOpen ? "unset" : 0)};
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      transition: ${TRANSITION_300MS};
+    }
+  }
+  li.selected, li:hover {
+    background: ${(props) => (props.isNight ? NIGHT_BOX_BG : DAY_BOX_BG)};
+  }
+  li.selected {
+    color: ${(props) => (props.isNight ? NIGHT_TEXT_COLOR : "rgb(72, 137, 198)")};
+  }
+`;

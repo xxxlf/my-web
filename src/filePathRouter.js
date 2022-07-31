@@ -1,11 +1,6 @@
 // 解析文件路径生成react router
 import React, { lazy, Suspense } from "react";
-import {
-  HashRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 Array.prototype.subarray = function (start, end) {
   if (!end) end = this.length;
@@ -36,15 +31,13 @@ modulesFiles.keys().forEach((filename) => {
 
 export default () => {
   return (
-    <Router basename="/">
-      <Suspense fallback={<div>xxxlf loading...</div>}>
-        <Switch>
-          {routers.map(({ name, ...rest }) => {
-            return <Route key={name} {...rest} />;
-          })}
-          <Redirect to="/" />
-        </Switch>
-      </Suspense>
-    </Router>
+    <Suspense fallback={<div>xxxlf loading...</div>}>
+      <Switch>
+        {routers.map(({ name, ...rest }) => {
+          return <Route key={name} {...rest} />;
+        })}
+        <Redirect to="/oneLineOfCode" />
+      </Switch>
+    </Suspense>
   );
 };

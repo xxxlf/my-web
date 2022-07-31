@@ -1,4 +1,5 @@
 import React from "react";
+import { HashRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import "./App.less";
@@ -12,9 +13,11 @@ function App() {
   return (
     <Provider store={store}>
       <ConfigProvider locale={zhCN}>
-        <Layout>
-          <Routers />
-        </Layout>
+        <Router basename="/">
+          <Layout>
+            <Routers />
+          </Layout>
+        </Router>
       </ConfigProvider>
     </Provider>
   );

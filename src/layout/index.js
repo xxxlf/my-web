@@ -1,8 +1,9 @@
 import React, { useReducer } from "react";
-import LayoutContainer from "./styled";
+import { LayoutContainer } from "./styled";
 import { SmileOutlined, LeftOutlined } from "@ant-design/icons";
 import touxiang from "@/assets/WX20220730-002726@2x.png";
 import { useDispatch, useSelector } from "react-redux";
+import Menu from "./menu";
 
 export default ({ children }) => {
   const [isOpen, setIsOpen] = useReducer((state) => !state, true);
@@ -28,6 +29,7 @@ export default ({ children }) => {
             <span className="desc">一个小菜鸡</span>
           </div>
         </div>
+        <Menu isOpen={isOpen} isNight={isNight} />
         {/* 主题切换 */}
         <div className="nav_theme_switch">
           <span className="text">
@@ -44,7 +46,7 @@ export default ({ children }) => {
       </nav>
       {/* 内容区域 */}
       <div className="layout_content">
-        <div className="layout_header">123</div>
+        {/* <div className="layout_header">123</div> */}
         <div className="layout_article">{children}</div>
       </div>
     </LayoutContainer>
