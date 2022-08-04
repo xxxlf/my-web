@@ -208,7 +208,8 @@ export const MenuContainer = styled.ul`
     transition: ${TRANSITION_300MS};
     padding: 0 10px;
     font-size: 18px;
-    .menu_icon {
+    .iconfont {
+      font-size: 18px;
       width: 40px;
       display: flex;
       justify-content: center;
@@ -224,10 +225,12 @@ export const MenuContainer = styled.ul`
       transition: ${TRANSITION_300MS};
     }
   }
-  li.selected, li:hover {
+  li.selected,
+  li:hover {
     background: ${(props) => (props.isNight ? NIGHT_BOX_BG : DAY_BOX_BG)};
   }
   li.selected {
-    color: ${(props) => (props.isNight ? NIGHT_TEXT_COLOR : "rgb(72, 137, 198)")};
+    color: ${(props) =>
+      props.isNight ? NIGHT_TEXT_COLOR : "rgb(72, 137, 198)"};
   }
 `;

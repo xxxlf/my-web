@@ -4,8 +4,9 @@ import { MenuContainer } from "./styled";
 import { CodeOutlined, MonitorOutlined } from "@ant-design/icons";
 
 const menuList = [
-  { title: "一行代码搞定", link: "/oneLineOfCode", icon: <CodeOutlined /> },
-  { title: "有意思的CSS", link: "/funnyCss", icon: <MonitorOutlined /> },
+  { title: "React 小记", link: "/aboutReact", icon: "react" },
+  { title: "一行代码搞定", link: "/oneLineOfCode", icon: "tubiao-hanshu" },
+  { title: "有意思的CSS", link: "/funnyCss", icon: "youleyuan" },
 ];
 
 const Menu = React.memo(({ isOpen, isNight }) => {
@@ -20,7 +21,7 @@ const Menu = React.memo(({ isOpen, isNight }) => {
           onClick={() => history.push(item.link)}
           className={location.pathname === item.link ? "selected" : ""}
         >
-          <span className="menu_icon">{item.icon}</span>
+          <span className={`iconfont icon-${item.icon}`} />
           <span className="menu_text">{item.title}</span>
         </li>
       ))}

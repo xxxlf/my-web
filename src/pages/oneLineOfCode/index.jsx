@@ -4,7 +4,7 @@ import Card from "@/components/Card";
 const contentList = [
   {
     title: "数组转对象",
-    desc: "一些场景下只知一些关键数据的集合（比如表格勾选，selectedKeys之记录了每条数据的id），而提交时需要每条id下的其他字段，直接用selectedKeys遍历数组数据不太好，可以将数组数据先转换成对象",
+    desc: `一些场景下只知一些关键数据的集合（比如表格勾选，selectedKeys之记录了每条数据的id），而提交时需要每条id下的其他字段，直接用selectedKeys遍历数组数据不太好，可以将数组数据先转换成对象\nArray.reduce 方法非常强大，可以解决大部分数组问题，也有很多的妙用`,
     codeText:
       'const arrayToHash = (dataSource, PK = "id") => dataSource.reduce((obj, item) => ((obj[item[PK]] = item), obj), {});',
   },

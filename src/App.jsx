@@ -3,6 +3,7 @@ import { HashRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import "./App.less";
+import "./assets/iconfont/iconfont.css"
 import { ConfigProvider } from "antd";
 import zhCN from "antd/lib/locale/zh_CN";
 // import Routers from "./router";
