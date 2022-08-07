@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_template=self.webpackChunkreact_template||[]).push([[6],{8006:(e,t,a)=>{a.r(t)}}]);
