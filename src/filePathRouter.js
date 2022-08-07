@@ -36,7 +36,7 @@ export default () => {
         {routers.map(({ name, ...rest }) => {
           return <Route key={name} {...rest} />;
         })}
-        <Redirect to="/oneLineOfCode" />
+        <Redirect to="/aboutReact" />
       </Switch>
     </Suspense>
   );
