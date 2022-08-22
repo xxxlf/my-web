@@ -23,13 +23,14 @@ export default ({ children }) => {
   };
 
   const returnText = () => {
-    const text = menuList.filter((item) => location.pathname === item.link)[0]
-      ?.title;
-    return `${text || ""}_`.split("").map((value, ind) => (
+    const text = `${
+      menuList.filter((item) => location.pathname === item.link)[0]?.title || ""
+    }_`;
+    return text.split("").map((value, ind) => (
       <SpanTran
         key={ind}
         delay={ind + 1}
-        className={ind === text.length ? "guangbiao" : ""}
+        className={ind === text.length - 1 ? "guangbiao" : ""}
       >
         {value}
       </SpanTran>

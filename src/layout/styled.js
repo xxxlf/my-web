@@ -40,6 +40,7 @@ export const LayoutContainer = styled.div`
       margin: -300px;
       position: relative;
       img {
+        min-height: 640px;
         width: 100%;
       }
       &::after {
