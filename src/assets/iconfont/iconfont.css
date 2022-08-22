@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1659367096207') format('truetype');
+  src: url('iconfont.ttf?t=1661095467028') format('truetype');
 }
 
 .iconfont {
@@ -21,5 +21,9 @@
 
 .icon-react:before {
   content: "\e64b";
+}
+
+.icon-fanhuidingbu:before {
+  content: "\e658";
 }
 

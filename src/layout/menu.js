@@ -1,9 +1,8 @@
 import React from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { MenuContainer } from "./styled";
-import { CodeOutlined, MonitorOutlined } from "@ant-design/icons";
 
-const menuList = [
+export const menuList = [
   { title: "React 小记", link: "/aboutReact", icon: "react" },
   { title: "一行代码搞定", link: "/oneLineOfCode", icon: "tubiao-hanshu" },
   { title: "有意思的CSS", link: "/funnyCss", icon: "youleyuan" },
@@ -20,6 +19,7 @@ const Menu = React.memo(({ isOpen, isNight }) => {
           key={item.title}
           onClick={() => history.push(item.link)}
           className={location.pathname === item.link ? "selected" : ""}
+          title={item.title}
         >
           <span className={`iconfont icon-${item.icon}`} />
           <span className="menu_text">{item.title}</span>

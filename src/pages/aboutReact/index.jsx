@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, forwardRef } from "react";
+import React from "react";
 import Card from "@/components/Card";
 import styled from "styled-components";
 import fiber_jiegoutu from "@/assets/fiber_jiegoutu.png";
@@ -119,7 +119,7 @@ function AboutReact() {
             注意：flushSync 会以函数为作用域，函数内部的多个 setState 仍然为批量更新，这样可以精准控制哪些不需要的批量更新`}
         </Text>
         <Code
-          codeText={`           function handleClick() {
+          codeText={`          function handleClick() {
             flushSync(() => {
               setCount(3);
               setFlag(true);

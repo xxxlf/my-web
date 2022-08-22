@@ -22,22 +22,41 @@ export const LayoutContainer = styled.div`
   transition: ${TRANSITION_300MS};
   .layout_content {
     flex: 1;
+    padding: 16px 56px;
     display: flex;
     flex-direction: column;
+    overflow: hidden auto;
+    scroll-behavior: smooth;
+    position: relative;
     /* background: #18191a; */
-    .layout_header {
+    /* .layout_header {
       height: 60px;
-      /* background: #000; */
+      background: #000;
       border-bottom: 1px solid #ebebeb;
       border-left: 1px solid #ebebeb;
       box-shadow: 0px 0px 10px 10px rgb(0 0 0 / 40%);
+    } */
+    .layout_bgIMG {
+      margin: -300px;
+      position: relative;
+      img {
+        width: 100%;
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        box-shadow: ${props => props.isNight? "unset": "0 18px 18px 100px rgba(228, 233, 247, 1) inset"};
+      }
     }
     .layout_article {
+      position: relative;
       flex: 1;
-      margin: 16px;
       /* padding: 16px; */
       /* border: 1px solid #000; */
-      overflow-y: auto;
     }
   }
 
@@ -192,6 +211,21 @@ export const LayoutContainer = styled.div`
       }
     }
   }
+  .back_top {
+    width: 28px;
+    height: 28px;
+    position: fixed;
+    bottom: 14px;
+    right: 14px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    background: ${(props) => (props.isNight ? NIGHT_BOX_BG : DAY_BOX_BG)};
+    color: ${(props) => (props.isNight ? NIGHT_TEXT_COLOR : DAY_TEXT_COLOR)};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const MenuContainer = styled.ul`
@@ -232,5 +266,38 @@ export const MenuContainer = styled.ul`
   li.selected {
     color: ${(props) =>
       props.isNight ? NIGHT_TEXT_COLOR : "rgb(72, 137, 198)"};
+  }
+`;
+
+export const SpanTran = styled.span`
+  transition: 0.5s;
+  transition-delay: calc(${(props) => props.delay} * 0.1s);
+  &.guangbiao {
+    animation: guangbiao 1s steps(1) infinite;
+  }
+  @keyframes guangbiao {
+    0%,
+    100% {
+      color: #fff;
+    }
+    50% {
+      color: transparent;
+    }
+  }
+`;
+
+export const TextContainer = styled.div`
+  font: 900 40px "";
+  transition: ${TRANSITION_300MS};
+  cursor: pointer;
+  color: #fff;
+  position: absolute;
+  top: -56px;
+  left: 50%;
+  transform: translateX(-50%);
+  &:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 50px #fff,
+      0 0 80px #fff;
   }
 `;

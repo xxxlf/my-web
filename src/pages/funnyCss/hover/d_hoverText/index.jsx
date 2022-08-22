@@ -15,12 +15,12 @@ function B_hoverButton({ text }) {
 
 export default B_hoverButton;
 
-const SpanTran = styled.span`
+export const SpanTran = styled.span`
   transition: 0.5s;
   transition-delay: calc(${(props) => props.delay} * 0.1s);
 `;
 
-const Container = styled.div`
+export const Container = styled.div`
   font: 900 40px "";
   cursor: pointer;
   &:hover {
