@@ -20,6 +20,7 @@ module.exports = {
       template: path.resolve(__dirname, "../public/index.html"),
       inject: "body",
       title: "xxxlf-web",
+      favicon: path.resolve(__dirname, '../src/assets/WX20220730-002726@2x36*36.png') 
     }),
     new MiniCssExtractPlugin({
       filename: "style/index.[contenthash].css",

@@ -15,6 +15,7 @@ export default ({ children }) => {
   const { isNight } = useSelector((state) => ({ isNight: state.isNight }));
 
   const handleScrollCapture = (e) => {
+    if (e.target.className !== "layout_content") return;
     if (e.target.scrollTop > 100) {
       setHaveBackTop(true);
     } else {

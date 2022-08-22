@@ -296,6 +296,7 @@ export const TextContainer = styled.div`
   top: -56px;
   left: 50%;
   transform: translateX(-50%);
+  white-space: nowrap;
   &:hover {
     color: #fff;
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 50px #fff,
