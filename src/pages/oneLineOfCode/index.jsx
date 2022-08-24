@@ -4,7 +4,8 @@ import Card from "@/components/Card";
 const contentList = [
   {
     title: "数组转对象",
-    desc: `一些场景下只知一些关键数据的集合（比如表格勾选，selectedKeys之记录了每条数据的id），而提交时需要每条id下的其他字段，直接用selectedKeys遍历数组数据不太好，可以将数组数据先转换成对象\nArray.reduce 方法非常强大，可以解决大部分数组问题，也有很多的妙用`,
+    desc: `一些场景下只知一些关键数据的集合（比如表格勾选，selectedKeys之记录了每条数据的id），而提交时需要每条id下的其他字段，直接用selectedKeys遍历数组数据不太好，可以将数组数据先转换成对象
+    Array.reduce 方法非常强大，可以解决大部分数组问题，也有很多的妙用，比如求一个数组的平均值 const average = (arr) => arr.reduce((a, b) => a + b) / arr.length;`,
     codeText:
       'const arrayToHash = (dataSource, PK = "id") => dataSource.reduce((obj, item) => ((obj[item[PK]] = item), obj), {});',
   },
@@ -45,6 +46,11 @@ const contentList = [
     desc: "常用于多组数据（或面试 -_- ）进行一些交集数据的处理，此函数可用于两组或更多组数据的交集获取",
     codeText:
       "const jiaoji = (arr, ...otherArr) => [...new Set(arr)].filter(value => otherArr.every(itemArr => itemArr.includes(value)));",
+  },
+  {
+    title: "千分位分隔符",
+    desc: "用于处理金额的展示，让用户可以更好的读出金额，提升用户体验。 tip：这里展示保留两位小数切不四舍五入",
+    codeText: "const addThousandthSign = numStr => numStr.toFixed(3).replace(/(\\d)(?=(\\d{3})+\\.)/g, '$1,').slice(0, -1)"
   },
 ];
 

@@ -37,6 +37,7 @@ export default ({ children }) => {
       </SpanTran>
     ));
   };
+
   return (
     <LayoutContainer isOpen={isOpen} isNight={isNight}>
       {/* 左侧菜单栏 */}
@@ -74,7 +75,11 @@ export default ({ children }) => {
       {/* 内容区域 */}
       <div className="layout_content" onScrollCapture={handleScrollCapture}>
         {/* <div className="layout_header">123</div> */}
-        <div className="layout_bgIMG">
+        <div
+          className={`layout_bgIMG${
+            location.pathname === "/teamTaskList" ? " hideBgImg" : ""
+          }`}
+        >
           <img src={bgIMG} />
         </div>
         <div className="layout_article">

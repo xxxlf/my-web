@@ -5,6 +5,7 @@ import { MenuContainer } from "./styled";
 export const menuList = [
   { title: "React 小记", link: "/aboutReact", icon: "react" },
   { title: "一行代码搞定", link: "/oneLineOfCode", icon: "tubiao-hanshu" },
+  { title: "需求列表", link: "/teamTaskList", icon: "task" },
   { title: "有意思的CSS", link: "/funnyCss", icon: "youleyuan" },
 ];
 

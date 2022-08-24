@@ -6,7 +6,9 @@ import "./App.less";
 import "./assets/iconfont/iconfont.css"
 import { ConfigProvider } from "antd";
 import zhCN from "antd/lib/locale/zh_CN";
+// 使用自定义router
 // import Routers from "./router";
+// 使用文件路径作为router
 import Routers from "./filePathRouter";
 import Layout from "@/layout";
 

@@ -37,7 +37,7 @@ export const LayoutContainer = styled.div`
       box-shadow: 0px 0px 10px 10px rgb(0 0 0 / 40%);
     } */
     .layout_bgIMG {
-      margin: -300px;
+      margin: -280px;
       position: relative;
       img {
         min-height: 640px;
@@ -50,11 +50,22 @@ export const LayoutContainer = styled.div`
         height: 100%;
         top: 0;
         left: 0;
-        box-shadow: ${props => props.isNight? "unset": "0 18px 18px 100px rgba(228, 233, 247, 1) inset"};
+        box-shadow: ${(props) =>
+          props.isNight
+            ? "unset"
+            : "0 18px 18px 100px rgba(228, 233, 247, 1) inset"};
       }
+      transition: ${TRANSITION_300MS};
+    }
+    .layout_bgIMG.hideBgImg {
+      height: 0;
+      margin: 0;
+      overflow: hidden;
     }
     .layout_article {
+      margin-top: 56px;
       position: relative;
+      height: calc(100% - 88px);
       flex: 1;
       /* padding: 16px; */
       /* border: 1px solid #000; */

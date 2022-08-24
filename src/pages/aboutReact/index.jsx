@@ -130,6 +130,34 @@ function AboutReact() {
           }`}
         />
       </Card>
+
+      <Card
+        title="部分组件间的状态管理"
+        desc="对于小范围的状态管理，我们可以通过 createContext + useContext + useReducer 进行管理"
+      >
+        <Code
+          codeText={`            import React, { useContext, useReducer } from "react";
+
+            export const Content = React.createContext(0);
+
+            export default function useMyContent() {
+              const [state, dispatch] = useReducer((state, action) => {
+                switch (action.type) {
+                  default:
+                    return { ...state };
+                    break;
+                }
+              }, {});
+
+              <Content.Provider value={{ state, dispatch }}>
+                {/* 子组件内通过 const contentCount = useContext(Content); 来调用数据和方法 */}
+                <AnyComponents />
+              </Content.Provider>;
+            }
+          `}
+        />
+      </Card>
+
       <Card
         title="react 固定条件的 useState 使用 useReduce 代替"
         desc="一些固定条件的useState（比如每次点击 state + 2），使用 useState 需要 const [num, setNum] = useState(0)，const addTwo = () => setNum(prev => prev +2)，而 useReduce 一行就可搞定"
